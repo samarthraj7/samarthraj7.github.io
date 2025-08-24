@@ -262,7 +262,113 @@
             font-weight: bold;
         }
 
-        /* Projects Grid */
+        /* Publications Section */
+        .publications-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .publication-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #667eea;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .publication-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .publication-content {
+            flex: 1;
+        }
+
+        .publication-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .publication-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .publication-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pub-tag {
+            background: #f0f2ff;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .publication-status {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-badge.published {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-badge.in-review {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .conference-badge {
+            background: #e7f3ff;
+            color: #0066cc;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -341,7 +447,69 @@
             color: #764ba2;
         }
 
-        /* Skills Section */
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .award-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border-top: 4px solid #667eea;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .award-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .award-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-organization {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .award-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .award-year {
+            background: #f0f2ff;
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+        }
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -518,11 +686,57 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#publications">Publications</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#awards">Awards</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-            </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Enterprise LLM Pipeline</h3>
+                        <p class="project-description">
+                            Designed and implemented production-ready LLM pipelines on GCP for contract management and call record summarization, reducing processing time by 75%.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">GCP</span>
+                            <span class="tech-tag">LLMs</span>
+                            <span class="tech-tag">Pipeline Architecture</span>
+                            <span class="tech-tag">Production ML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/samarthraj7" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">RAGAs-based LLM Evaluation</h3>
+                        <p class="project-description">
+                            Pioneered automated LLM evaluation framework using RAGAs methodology, streamlining model comparison workflows and cutting issue resolution cycles by 50%.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">RAGAs</span>
+                            <span class="tech-tag">Model Evaluation</span>
+                            <span class="tech-tag">Automation</span>
+                            <span class="tech-tag">MLOps</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/samarthraj7" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
         </div>
     </nav>
 
@@ -579,7 +793,78 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Publications Section -->
+    <section id="publications" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Publications & Research</h2>
+            <div class="publications-grid">
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Cricket Scenario Recommender System</h3>
+                        <p class="publication-venue">Springer - Advanced Computing and Communication Technologies</p>
+                        <p class="publication-description">
+                            Engineered first-of-its-kind BERT-based NLP system analyzing 500+ match scenarios to recommend field placements with 85% tactical accuracy.
+                        </p>
+                        <div class="publication-tags">
+                            <span class="pub-tag">BERT</span>
+                            <span class="pub-tag">NLP</span>
+                            <span class="pub-tag">Sports Analytics</span>
+                        </div>
+                        <div class="publication-status">
+                            <span class="status-badge published">Published</span>
+                            <span class="conference-badge">WorldS4 London 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Agricultural Yield Prediction with Satellite Data</h3>
+                        <p class="publication-venue">Springer - International Conference on Innovative Computing and Communications</p>
+                        <p class="publication-description">
+                            Trained LSTM models using 12 years of MODIS imagery and NDVI metrics, achieving RMSE of 0.12 for robust yield forecasting in Karnataka.
+                        </p>
+                        <div class="publication-tags">
+                            <span class="pub-tag">LSTM</span>
+                            <span class="pub-tag">Remote Sensing</span>
+                            <span class="pub-tag">Agriculture</span>
+                        </div>
+                        <div class="publication-status">
+                            <span class="status-badge published">Published</span>
+                            <span class="conference-badge">ICICC 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">LLM Evaluation Framework for Enterprise Applications</h3>
+                        <p class="publication-venue">Industry White Paper - British Telecom Research</p>
+                        <p class="publication-description">
+                            Developed comprehensive RAGAs-based evaluation methodology for comparing LLM performance across enterprise use cases, reducing evaluation time by 50%.
+                        </p>
+                        <div class="publication-tags">
+                            <span class="pub-tag">LLMs</span>
+                            <span class="pub-tag">RAGAs</span>
+                            <span class="pub-tag">Enterprise AI</span>
+                        </div>
+                        <div class="publication-status">
+                            <span class="status-badge in-review">Industry Paper</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Featured Projects</h2>
@@ -679,7 +964,69 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Awards & Achievements Section -->
+    <section id="awards" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Awards & Achievements</h2>
+            <div class="awards-grid">
+                <div class="award-card fade-in">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="award-content">
+                        <h3 class="award-title">Business Impact Award</h3>
+                        <p class="award-organization">British Telecom Group</p>
+                        <p class="award-description">
+                            Recognized for developing Summary Assist Model that achieved 10M GBP potential savings over five years and reduced rejection rates from 70% to 20%.
+                        </p>
+                        <div class="award-year">2024</div>
+                    </div>
+                </div>
+
+                <div class="award-card fade-in">
+                    <div class="award-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="award-content">
+                        <h3 class="award-title">Research Excellence</h3>
+                        <p class="award-organization">WorldS4 London Conference</p>
+                        <p class="award-description">
+                            Selected to present innovative BERT-based cricket analytics system at international conference, showcasing first-of-its-kind sports AI application.
+                        </p>
+                        <div class="award-year">2023</div>
+                    </div>
+                </div>
+
+                <div class="award-card fade-in">
+                    <div class="award-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="award-content">
+                        <h3 class="award-title">Academic Excellence</h3>
+                        <p class="award-organization">PES University</p>
+                        <p class="award-description">
+                            Graduated with GPA of 8.87/10, demonstrating consistent academic performance in Computer Science with specialization in AI/ML.
+                        </p>
+                        <div class="award-year">2024</div>
+                    </div>
+                </div>
+
+                <div class="award-card fade-in">
+                    <div class="award-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="award-content">
+                        <h3 class="award-title">Innovation in AI</h3>
+                        <p class="award-organization">ICICC Conference</p>
+                        <p class="award-description">
+                            Published research on agricultural yield prediction using satellite imagery, achieving industry-leading RMSE of 0.12 for yield forecasting.
+                        </p>
+                        <div class="award-year">2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title fade-in">Technical Skills</h2>
