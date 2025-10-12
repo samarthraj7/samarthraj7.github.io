@@ -3,1183 +3,1302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samarth Rajendra - AI/ML Engineer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        /* Profile Picture */
-        .profile-picture {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            margin: 0 auto 2rem auto;
-            display: block;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-
-        .profile-picture:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            z-index: 2;
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero .description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #667eea;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Floating particles */
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        /* Sections */
-        .section {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        .section:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: #667eea;
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* Experience Cards */
-        .experience-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .experience-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 5px solid #667eea;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .company {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .role {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .duration {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .achievements {
-            list-style: none;
-        }
-
-        .achievements li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .achievements li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        /* Publications Section */
-        .publications-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .publication-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 5px solid #667eea;
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .publication-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .publication-icon {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .publication-content {
-            flex: 1;
-        }
-
-        .publication-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-venue {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .publication-description {
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .publication-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .pub-tag {
-            background: #f0f2ff;
-            color: #667eea;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .publication-status {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .status-badge {
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .status-badge.published {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .status-badge.in-review {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .conference-badge {
-            background: #e7f3ff;
-            color: #0066cc;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .project-description {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-tag {
-            background: #f0f2ff;
-            color: #667eea;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .project-link:hover {
-            color: #764ba2;
-        }
-
-        /* Awards Section */
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .award-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-            border-top: 4px solid #667eea;
-        }
-
-        .award-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .award-icon {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem auto;
-        }
-
-        .award-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .award-organization {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .award-description {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .award-year {
-            background: #f0f2ff;
-            color: #667eea;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: 600;
-            display: inline-block;
-        }
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-category h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: #f8f9fa;
-            color: #333;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #ffffff;
-            position: relative;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1;
-        }
-
-        .contact .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact .section-title {
-            color: #ffffff !important;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        .contact .section-title::after {
-            background: #ffffff;
-        }
-
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            color: #ffffff;
-        }
-
-        .contact-content p {
-            color: #ffffff;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            color: #ffffff;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .contact-link:hover {
-            transform: scale(1.2);
-            background: rgba(255, 255, 255, 0.2);
-            border-color: #ffffff;
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-links {
-                gap: 1rem;
-            }
-        }
-    </style>
+    <title>Samarth Rajendra - AI Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <div class="logo">SR</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#awards">Awards</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Enterprise LLM Pipeline</h3>
-                        <p class="project-description">
-                            Designed and implemented production-ready LLM pipelines on GCP for contract management and call record summarization, reducing processing time by 75%.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">GCP</span>
-                            <span class="tech-tag">LLMs</span>
-                            <span class="tech-tag">Pipeline Architecture</span>
-                            <span class="tech-tag">Production ML</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/samarthraj7" class="project-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Case Study
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">RAGAs-based LLM Evaluation</h3>
-                        <p class="project-description">
-                            Pioneered automated LLM evaluation framework using RAGAs methodology, streamlining model comparison workflows and cutting issue resolution cycles by 50%.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">RAGAs</span>
-                            <span class="tech-tag">Model Evaluation</span>
-                            <span class="tech-tag">Automation</span>
-                            <span class="tech-tag">MLOps</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/samarthraj7" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="nav-container">
+            <div class="logo">Samarth Rajendra</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#journey" class="nav-link">My Journey</a></li>
+                <li><a href="#beyond" class="nav-link">Beyond Resume</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#future" class="nav-link">What's Next</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="profile.jpg" alt="Samarth Rajendra" class="profile-picture">
-            <h1>Samarth Rajendra</h1>
-            <div class="subtitle">AI/ML Engineer & Data Science Professional</div>
-            <div class="description">
-                USC MS CS Student | Ex-British Telecom AI Professional | Specializing in Generative AI, LLMs, and Production ML Systems
-            </div>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="mailto:sr47937@usc.edu" class="btn btn-secondary">Get In Touch</a>
-            </div>
-        </div>
-        
-        <!-- Floating particles -->
-        <div class="particle" style="width: 20px; height: 20px; top: 20%; left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="width: 15px; height: 15px; top: 60%; left: 85%; animation-delay: 2s;"></div>
-        <div class="particle" style="width: 25px; height: 25px; top: 80%; left: 20%; animation-delay: 4s;"></div>
-        <div class="particle" style="width: 18px; height: 18px; top: 30%; left: 80%; animation-delay: 1s;"></div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Professional Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card fade-in">
-                    <div class="company">British Telecom Group</div>
-                    <div class="role">Data Science and Gen AI Professional</div>
-                    <div class="duration">July 2024 – July 2025</div>
-                    <ul class="achievements">
-                        <li>Architected Summary Assist Model with config-driven prompt orchestration, reducing rejection rates from 70% to 20% for 27,000+ active users</li>
-                        <li>Achieved potential savings of 10M GBP over five years through advanced RAG and agentic prompting techniques</li>
-                        <li>Spearheaded customer persona module using GCP and Gemini, translating engineer notes to plain language (600K GBP annual potential)</li>
-                        <li>Evaluated 5+ LLMs (GPT, Claude Sonnet, Llama, Gemini) for chatbot applications, reducing operational costs by 30%</li>
-                        <li>Pioneered automated LLM Evaluation Guide using RAGAs, cutting issue resolution cycles by 50%</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card fade-in">
-                    <div class="company">British Telecom Group</div>
-                    <div class="role">Associate Software Intern</div>
-                    <div class="duration">January 2024 – July 2024</div>
-                    <ul class="achievements">
-                        <li>Designed LLM pipelines on GCP for contract management and call record summarization, reducing processing time by 75%</li>
-                        <li>Accelerated pipeline execution from 120s to 20s (83% reduction) and successfully delivered to production</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Publications & Research</h2>
-            <div class="publications-grid">
-                <div class="publication-card fade-in">
-                    <div class="publication-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <div class="publication-content">
-                        <h3 class="publication-title">Cricket Scenario Recommender System</h3>
-                        <p class="publication-venue">Springer - Advanced Computing and Communication Technologies</p>
-                        <p class="publication-description">
-                            Engineered first-of-its-kind BERT-based NLP system analyzing 500+ match scenarios to recommend field placements with 85% tactical accuracy.
-                        </p>
-                        <div class="publication-tags">
-                            <span class="pub-tag">BERT</span>
-                            <span class="pub-tag">NLP</span>
-                            <span class="pub-tag">Sports Analytics</span>
-                        </div>
-                        <div class="publication-status">
-                            <span class="status-badge published">Published</span>
-                            <span class="conference-badge">WorldS4 London 2023</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="publication-card fade-in">
-                    <div class="publication-icon">
-                        <i class="fas fa-satellite"></i>
-                    </div>
-                    <div class="publication-content">
-                        <h3 class="publication-title">Agricultural Yield Prediction with Satellite Data</h3>
-                        <p class="publication-venue">Springer - International Conference on Innovative Computing and Communications</p>
-                        <p class="publication-description">
-                            Trained LSTM models using 12 years of MODIS imagery and NDVI metrics, achieving RMSE of 0.12 for robust yield forecasting in Karnataka.
-                        </p>
-                        <div class="publication-tags">
-                            <span class="pub-tag">LSTM</span>
-                            <span class="pub-tag">Remote Sensing</span>
-                            <span class="pub-tag">Agriculture</span>
-                        </div>
-                        <div class="publication-status">
-                            <span class="status-badge published">Published</span>
-                            <span class="conference-badge">ICICC 2024</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="publication-card fade-in">
-                    <div class="publication-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="publication-content">
-                        <h3 class="publication-title">LLM Evaluation Framework for Enterprise Applications</h3>
-                        <p class="publication-venue">Industry White Paper - British Telecom Research</p>
-                        <p class="publication-description">
-                            Developed comprehensive RAGAs-based evaluation methodology for comparing LLM performance across enterprise use cases, reducing evaluation time by 50%.
-                        </p>
-                        <div class="publication-tags">
-                            <span class="pub-tag">LLMs</span>
-                            <span class="pub-tag">RAGAs</span>
-                            <span class="pub-tag">Enterprise AI</span>
-                        </div>
-                        <div class="publication-status">
-                            <span class="status-badge in-review">Industry Paper</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Cricket Scenario Recommender System</h3>
-                        <p class="project-description">
-                            Engineered first-of-its-kind BERT-based NLP system analyzing 500+ match scenarios to recommend field placements with 85% tactical accuracy. Presented at WorldS4 London 2023.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">BERT</span>
-                            <span class="tech-tag">NLP</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">PyTorch</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/samarthraj7" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Vision Transformer Street Scene Segmentation</h3>
-                        <p class="project-description">
-                            Implemented ViT architecture for urban scene classification, achieving 96% accuracy on Cityscapes dataset through optimized patch embedding strategies.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Vision Transformer</span>
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">OpenCV</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/samarthraj7" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Agricultural Yield Prediction</h3>
-                        <p class="project-description">
-                            Trained LSTM models using 12 years of MODIS imagery and NDVI metrics, achieving RMSE of 0.12 for robust yield forecasting in Karnataka. Published in ICICC 2024.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">LSTM</span>
-                            <span class="tech-tag">Time Series</span>
-                            <span class="tech-tag">Satellite Imagery</span>
-                            <span class="tech-tag">Deep Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/samarthraj7" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <i class="fas fa-stream"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Kafka Emulation System</h3>
-                        <p class="project-description">
-                            Built scalable messaging infrastructure using socket programming to handle 10+ concurrent client connections and achieve 90% message delivery reliability across 5 distributed nodes.
-                        </p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Distributed Systems</span>
-                            <span class="tech-tag">Socket Programming</span>
-                            <span class="tech-tag">Microservices</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/samarthraj7" class="project-link" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Awards & Achievements Section -->
-    <section id="awards" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Awards & Achievements</h2>
-            <div class="awards-grid">
-                <div class="award-card fade-in">
-                    <div class="award-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="award-content">
-                        <h3 class="award-title">Business Impact Award</h3>
-                        <p class="award-organization">British Telecom Group</p>
-                        <p class="award-description">
-                            Recognized for developing Summary Assist Model that achieved 10M GBP potential savings over five years and reduced rejection rates from 70% to 20%.
-                        </p>
-                        <div class="award-year">2024</div>
-                    </div>
-                </div>
-
-                <div class="award-card fade-in">
-                    <div class="award-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <div class="award-content">
-                        <h3 class="award-title">Research Excellence</h3>
-                        <p class="award-organization">WorldS4 London Conference</p>
-                        <p class="award-description">
-                            Selected to present innovative BERT-based cricket analytics system at international conference, showcasing first-of-its-kind sports AI application.
-                        </p>
-                        <div class="award-year">2023</div>
-                    </div>
-                </div>
-
-                <div class="award-card fade-in">
-                    <div class="award-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="award-content">
-                        <h3 class="award-title">Academic Excellence</h3>
-                        <p class="award-organization">PES University</p>
-                        <p class="award-description">
-                            Graduated with GPA of 8.87/10, demonstrating consistent academic performance in Computer Science with specialization in AI/ML.
-                        </p>
-                        <div class="award-year">2024</div>
-                    </div>
-                </div>
-
-                <div class="award-card fade-in">
-                    <div class="award-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="award-content">
-                        <h3 class="award-title">Innovation in AI</h3>
-                        <p class="award-organization">ICICC Conference</p>
-                        <p class="award-description">
-                            Published research on agricultural yield prediction using satellite imagery, achieving industry-leading RMSE of 0.12 for yield forecasting.
-                        </p>
-                        <div class="award-year">2024</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python (Expert)</span>
-                        <span class="skill-tag">R (Advanced)</span>
-                        <span class="skill-tag">SQL (Expert)</span>
-                    </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-robot"></i> AI/ML & Deep Learning</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Hugging Face</span>
-                        <span class="skill-tag">scikit-learn</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">Langchain</span>
-                        <span class="skill-tag">Langraph</span>
-                        <span class="skill-tag">RAG Applications</span>
-                        <span class="skill-tag">Fine-Tune LLMs</span>
-                    </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-cloud"></i> Cloud & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS SageMaker</span>
-                        <span class="skill-tag">GCP Vertex AI</span>
-                        <span class="skill-tag">BigQuery</span>
-                        <span class="skill-tag">DynamoDB</span>
-                        <span class="skill-tag">Lambda</span>
-                        <span class="skill-tag">Jupyter</span>
-                        <span class="skill-tag">Streamlit</span>
-                        <span class="skill-tag">MLOps</span>
-                    </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-cogs"></i> Development & Concepts</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">MERN Stack</span>
-                        <span class="skill-tag">DevOps</span>
-                        <span class="skill-tag">APIs</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                        <span class="skill-tag">Generative AI</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <div class="contact-content fade-in">
-                <h2 class="section-title">Let's Connect</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                    Interested in collaborating on AI/ML projects or discussing opportunities? I'd love to hear from you!
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hello, I'm Samarth 👋</h1>
+                <p class="hero-subtitle">AI/ML Engineer | Researcher | Sports Enthusiast</p>
+                <p class="hero-description">
+                    From watching cricket matches and solving math olympiads to building AI systems 
+                    that impact millions of users - this is my story.
                 </p>
-                <div class="contact-links">
-                    <a href="mailto:sr47937@usc.edu" class="contact-link" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/samarth-rajendra" class="contact-link" title="LinkedIn" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/samarthraj7" class="contact-link" title="GitHub" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="tel:+12138680656" class="contact-link" title="Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Research Papers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">27K+</span>
+                        <span class="stat-label">Users Impacted</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10M GBP</span>
+                        <span class="stat-label">Potential Savings</span>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="navigateToSection('journey')">Start My Story</button>
+                    <button class="btn btn-secondary" onclick="navigateToSection('projects')">View Projects</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Space for your professional photo -->
+                <div class="image-placeholder">
+                    <p>Your Photo Here</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Typing effect for hero subtitle (optional enhancement)
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
+    <!-- Journey Section -->
+    <section id="journey" class="section">
+        <div class="section-container">
+            <h2 class="section-title">The Journey: From Curiosity to Career</h2>
             
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
-        }
+            <div class="timeline">
+                <!-- Childhood -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">🏏</div>
+                    <div class="timeline-content">
+                        <h3>The Spark (Age 13)</h3>
+                        <p class="timeline-year">2008-2010</p>
+                        <p>
+                            <strong>Watching India lift the Cricket World Cup</strong> - that moment changed everything. 
+                            But there was another spark too - my first <strong>International Mathematics Olympiad</strong>.
+                        </p>
+                        <p>
+                            The problems were unlike anything I'd seen in class. They were <em>fascinating</em>. 
+                            Applied mathematics that made me think differently. I was hooked.
+                        </p>
+                        <div class="highlight-box">
+                            <strong>The Farming Connection:</strong> Growing up, my father - a farmer - faced constant 
+                            uncertainties with crops. Watching him struggle planted a seed: what if technology could help?
+                        </div>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="image-placeholder">Cricket/Math Photo</div>
+                    </div>
+                </div>
 
-        // Initialize typing effect after page load
-        window.addEventListener('load', () => {
-            const subtitle = document.querySelector('.hero .subtitle');
-            const originalText = subtitle.textContent;
-            setTimeout(() => {
-                typeWriter(subtitle, originalText, 80);
-            }, 1000);
-        });
-    </script>
+                <!-- Teen Years -->
+                <div class="timeline-item reverse">
+                    <div class="timeline-icon">🏆</div>
+                    <div class="timeline-content">
+                        <h3>The Foundation (Age 16)</h3>
+                        <p class="timeline-year">2013</p>
+                        <p>
+                            After competing every year, I finally <strong>topped my school</strong> in the International 
+                            Mathematics Olympiad and won the <strong>gold medal</strong>. But more importantly, I learned 
+                            the value of persistence and problem-solving.
+                        </p>
+                        <div class="skills-showcase">
+                            <span class="skill-tag">Analytical Thinking</span>
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Persistence</span>
+                        </div>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="image-placeholder">Medal/Achievement Photo</div>
+                    </div>
+                </div>
+
+                <!-- University -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">🎓</div>
+                    <div class="timeline-content">
+                        <h3>The Deep Dive (University Years)</h3>
+                        <p class="timeline-year">2020-2024 | PES University</p>
+                        <p>
+                            At PES University, I found my mentor - a professor who taught most of my AI courses. 
+                            Under his guidance, I didn't just learn AI; I <strong>published 3 research papers</strong>.
+                        </p>
+                        <div class="publication-list">
+                            <div class="publication">
+                                <strong>Cricket Scenario Recommender</strong>
+                                <span>WorldS4 London 2023, Springer</span>
+                            </div>
+                            <div class="publication">
+                                <strong>Agricultural Yield Prediction</strong>
+                                <span>ICICC 2024, Springer</span>
+                            </div>
+                            <div class="publication">
+                                <strong>StatHive: Cricket Analytics</strong>
+                                <span>Published Research</span>
+                            </div>
+                        </div>
+                        <p>
+                            I also led the <strong>Data Science Club</strong> and worked on real-world projects, 
+                            including predicting farm yields - bringing my childhood vision full circle.
+                        </p>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="image-placeholder">University/Research Photo</div>
+                    </div>
+                </div>
+
+                <!-- Professional -->
+                <div class="timeline-item reverse">
+                    <div class="timeline-icon">💼</div>
+                    <div class="timeline-content">
+                        <h3>The Impact (British Telecom)</h3>
+                        <p class="timeline-year">2024-2025</p>
+                        <p>
+                            My research and projects opened doors to <strong>British Telecom</strong>, where I work 
+                            as a Data Science and Gen AI Professional.
+                        </p>
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <h4>Summary Assist Model</h4>
+                                <p>Reduced rejection rates from <strong>70% → 20%</strong></p>
+                                <p>Supporting <strong>27,000+ active users</strong></p>
+                                <p>Potential savings: <strong>£10M over 5 years</strong></p>
+                            </div>
+                            <div class="metric">
+                                <h4>Customer Persona Module</h4>
+                                <p>GCP & Gemini-powered solution</p>
+                                <p>Translating technical notes to plain language</p>
+                                <p>Annual potential: <strong>£600K</strong></p>
+                            </div>
+                            <div class="metric">
+                                <h4>Recognition</h4>
+                                <p>Published <strong>confluence page on LLM Response Validation</strong></p>
+                                <p>Recognized for guiding stakeholders on LLM adoption</p>
+                                <p>Reduced operational costs by <strong>30%</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="image-placeholder">Work Photo</div>
+                    </div>
+                </div>
+
+                <!-- Present -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">🚀</div>
+                    <div class="timeline-content">
+                        <h3>The Next Chapter (Now)</h3>
+                        <p class="timeline-year">2025</p>
+                        <p>
+                            Currently pursuing my <strong>Master's in Computer Science (AI) at USC</strong>, 
+                            I'm inspired by pioneers like Geoffrey Hinton (Nobel Prize winner) and innovators 
+                            like Elon Musk bringing autonomous cars and robotics to life.
+                        </p>
+                        <div class="inspiration-box">
+                            <strong>My Vision:</strong> Continue research through a PhD and ultimately become 
+                            an AI entrepreneur, creating technologies that solve real-world problems - just like 
+                            the ones my father faced on the farm.
+                        </div>
+                    </div>
+                    <div class="timeline-image">
+                        <div class="image-placeholder">Recent Photo/USC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beyond Resume Section -->
+    <section id="beyond" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Beyond the Resume: The Complete Picture</h2>
+            
+            <div class="beyond-grid">
+                <!-- Sports -->
+                <div class="beyond-card sports">
+                    <div class="card-icon">🏏</div>
+                    <h3>Sports & Competition</h3>
+                    <p class="card-intro">
+                        That childhood World Cup moment wasn't just inspiration - it became a lifestyle.
+                    </p>
+                    <div class="sports-list">
+                        <div class="sport-item">
+                            <strong>Cricket</strong>
+                            <span>Zonal & University Level</span>
+                            <p>The game that started it all. Taught me strategy, teamwork, and handling pressure.</p>
+                        </div>
+                        <div class="sport-item">
+                            <strong>Chess</strong>
+                            <span>State Level Competition</span>
+                            <p>Strategic thinking off the field - every move counts.</p>
+                        </div>
+                        <div class="sport-item">
+                            <strong>Handball & Athletics</strong>
+                            <span>School Representative (Zonal Level)</span>
+                            <p>Team coordination and individual excellence.</p>
+                        </div>
+                        <div class="sport-item">
+                            <strong>Football & Badminton</strong>
+                            <span>Currently at British Telecom</span>
+                            <p>Staying active and building connections beyond work.</p>
+                        </div>
+                    </div>
+                    <div class="sports-gallery">
+                        <div class="gallery-placeholder">Cricket Photo</div>
+                        <div class="gallery-placeholder">Sports Action</div>
+                        <div class="gallery-placeholder">Team Photo</div>
+                    </div>
+                </div>
+
+                <!-- Tech Passion -->
+                <div class="beyond-card tech">
+                    <div class="card-icon">🤖</div>
+                    <h3>Technology & Innovation</h3>
+                    <div class="tech-interests">
+                        <div class="interest-item">
+                            <strong>AI Research</strong>
+                            <p>
+                                Not just implementing - I'm fascinated by <em>why</em> things work. 
+                                My published research on BERT-based systems and LSTM models stems from 
+                                this curiosity.
+                            </p>
+                        </div>
+                        <div class="interest-item">
+                            <strong>Open Source Contributions</strong>
+                            <p>
+                                <a href="https://github.com/SamarthRajendra">GitHub Profile</a> showcasing 
+                                projects like Kafka Emulation System, Vision Transformer implementations, 
+                                and more.
+                            </p>
+                        </div>
+                        <div class="interest-item">
+                            <strong>Continuous Learning</strong>
+                            <p>
+                                From online courses to hands-on projects - if there's a new AI advancement, 
+                                I'm exploring it. Recent focus: LangChain, LangGraph, advanced prompt engineering.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Interests -->
+                <div class="beyond-card personal">
+                    <div class="card-icon">🌄</div>
+                    <h3>Life Beyond Code</h3>
+                    <div class="personal-grid">
+                        <div class="personal-item">
+                            <strong>Hiking & Exploration</strong>
+                            <p>Living in LA now - exploring new trails and perspectives.</p>
+                            <div class="image-placeholder">Hiking Photo</div>
+                        </div>
+                        <div class="personal-item">
+                            <strong>Community Building</strong>
+                            <p>
+                                Led Data Science Club at university, now mentoring students interested in AI.
+                            </p>
+                        </div>
+                        <div class="personal-item">
+                            <strong>Cross-Cultural Connections</strong>
+                            <p>
+                                At British Telecom, worked with colleagues from diverse backgrounds across 
+                                multiple countries - enriching both my professional and personal perspective.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inspirations -->
+                <div class="beyond-card inspiration">
+                    <div class="card-icon">💡</div>
+                    <h3>What Drives Me</h3>
+                    <div class="inspiration-grid">
+                        <div class="inspiration-item">
+                            <strong>Geoffrey Hinton's Nobel Prize</strong>
+                            <p>
+                                Seeing fundamental research recognized at the highest level reminds me 
+                                that deep work matters.
+                            </p>
+                        </div>
+                        <div class="inspiration-item">
+                            <strong>Elon Musk's Innovation</strong>
+                            <p>
+                                Autonomous cars, robotics - pushing boundaries of what's possible with AI.
+                            </p>
+                        </div>
+                        <div class="inspiration-item">
+                            <strong>Kevin Lee (CMU Alumnus at BT)</strong>
+                            <p>
+                                Watching our Managing Director of Digital - a CMU School of Computer Science 
+                                alumnus - lead digital transformation has been incredibly inspiring.
+                            </p>
+                        </div>
+                        <div class="inspiration-item">
+                            <strong>My Father's Journey</strong>
+                            <p>
+                                His struggles and resilience in farming - the original problem I want to solve.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Beyond Resume -->
+            <div class="soft-skills">
+                <h3>What You Won't Find on My Resume (But Matters)</h3>
+                <div class="skill-cards">
+                    <div class="skill-card">
+                        <h4>Cross-functional Collaboration</h4>
+                        <p>
+                            At BT, I didn't just build models - I worked with product managers, business 
+                            stakeholders, and engineers across time zones to deliver solutions that actually 
+                            get used.
+                        </p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Adaptability</h4>
+                        <p>
+                            From evaluating 5+ different LLMs (GPT, Claude, Llama, Gemini) to switching 
+                            contexts between research and production - I thrive in dynamic environments.
+                        </p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Teaching & Mentoring</h4>
+                        <p>
+                            My confluence page on LLM validation became a reference guide for the team. 
+                            I love making complex concepts accessible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Projects I'm Most Proud Of</h2>
+            <p class="section-intro">
+                These aren't just projects - they're problems I deeply cared about solving. 
+                Let me walk you through two that represent my journey.
+            </p>
+
+            <!-- Project 1: Agricultural Yield Prediction -->
+            <div class="project-showcase">
+                <div class="project-header">
+                    <div class="project-number">01</div>
+                    <h3>Agricultural Yield Prediction with Satellite Data</h3>
+                    <p class="project-tag">Published at ICICC 2024, Springer</p>
+                </div>
+
+                <div class="project-content">
+                    <!-- Situation -->
+                    <div class="star-section situation">
+                        <h4>🎯 Situation: A Personal Problem</h4>
+                        <p>
+                            Remember my father's farming struggles? This was my chance to address it. 
+                            Farmers in Karnataka (and across India) lack access to precise, location-specific 
+                            crop forecasts. They rely on intuition and generic regional data, leading to:
+                        </p>
+                        <ul>
+                            <li>Poor crop selection decisions</li>
+                            <li>Suboptimal yield</li>
+                            <li>Financial instability</li>
+                        </ul>
+                        <div class="context-box">
+                            <strong>The Challenge:</strong> Agricultural predictions in India are typically 
+                            region-wide. But conditions vary dramatically even within a few kilometers. 
+                            Could we provide <em>square-kilometer level</em> predictions?
+                        </div>
+                    </div>
+
+                    <!-- Task -->
+                    <div class="star-section task">
+                        <h4>📋 Task: Building a Hyper-Local Prediction System</h4>
+                        <p><strong>My Role:</strong> Lead Researcher & Implementation Lead</p>
+                        <p><strong>Team:</strong> 4 members (I led the data science approach)</p>
+                        
+                        <div class="goals-grid">
+                            <div class="goal">
+                                <strong>Goal 1:</strong>
+                                <p>Achieve predictions at 1km² resolution (unprecedented for our region)</p>
+                            </div>
+                            <div class="goal">
+                                <strong>Goal 2:</strong>
+                                <p>Use 12 years of historical data to capture seasonal patterns</p>
+                            </div>
+                            <div class="goal">
+                                <strong>Goal 3:</strong>
+                                <p>Make it practical - farmers should be able to use coordinates to get forecasts</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action -->
+                    <div class="star-section action">
+                        <h4>⚡ Action: The Technical Journey</h4>
+                        
+                        <div class="action-timeline">
+                            <div class="action-step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h5>Data Collection & Processing</h5>
+                                    <ul>
+                                        <li>Extracted 12 years of <strong>MODIS satellite imagery</strong> from NASA's EarthData</li>
+                                        <li>Calculated <strong>NDVI (Normalized Difference Vegetation Index)</strong>:
+                                            <br><code>NDVI = (NIR - Red) / (NIR + Red)</code>
+                                        </li>
+                                        <li>Processed imagery for Karnataka region: extracted Red and NIR bands</li>
+                                        <li>Generated monthly averages to address seasonal variations</li>
+                                    </ul>
+                                    <div class="tech-highlight">
+                                        <strong>Challenge Solved:</strong> MODIS provides 30-day intervals - we needed 
+                                        monthly granularity for crop cycle alignment.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h5>Model Architecture: Why LSTM?</h5>
+                                    <p>
+                                        Initial attempts with traditional ML models (Random Forest, XGBoost) showed limitations 
+                                        in capturing temporal dependencies. Agricultural patterns aren't just about current 
+                                        conditions - they depend on what happened in previous months.
+                                    </p>
+                                    <div class="model-choice">
+                                        <strong>LSTM (Long Short-Term Memory) Network Architecture:</strong>
+                                        <ul>
+                                            <li>3 sequential LSTM layers (capturing long-term dependencies)</li>
+                                            <li>Time step: 12 months (one full crop cycle)</li>
+                                            <li>Dense output layer with MSE loss function</li>
+                                            <li>ADAM optimizer for efficient training</li>
+                                        </ul>
+                                    </div>
+                                    <div class="code-snippet">
+                                        <pre>
+# LSTM equations for one time step:
+i_t = σ(W_i · [h_{t-1}, x_t] + b_i)  # Input gate
+f_t = σ(W_f · [h_{t-1}, x_t] + b_f)  # Forget gate
+o_t = σ(W_o · [h_{t-1}, x_t] + b_o)  # Output gate
+C_t = f_t · C_{t-1} + i_t · tanh(W_c · [h_{t-1}, x_t] + b_c)
+h_t = o_t · tanh(C_t)
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h5>Data Preprocessing & Feature Engineering</h5>
+                                    <ul>
+                                        <li>
+                                            <strong>Min-Max Normalization:</strong> Scaled NDVI values to [0,1] range
+                                            <br><code>x' = (x - min(x)) / (max(x) - min(x))</code>
+                                        </li>
+                                        <li>Created 144 data points per location (12 years × 12 months)</li>
+                                        <li>Implemented 80-20 train-test split with temporal awareness 
+                                            (no data leakage from future)</li>
+                                        <li>Handled missing data from cloud cover using interpolation</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="action-step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h5>Training & Optimization</h5>
+                                    <ul>
+                                        <li>Trained over 20 epochs with early stopping</li>
+                                        <li>Monitored training/validation loss curves for overfitting</li>
+                                        <li>Experimented with different learning rates and batch sizes</li>
+                                        <li>Cross-validated across different regions of Karnataka</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="action-step">
+                                <span class="step-number">5</span>
+                                <div class="step-content">
+                                    <h5>Practical Application Layer</h5>
+                                    <p>
+                                        Building the model was half the battle. Making it usable was the other half.
+                                    </p>
+                                    <ul>
+                                        <li>Created crop-specific NDVI value tables for:
+                                            <ul>
+                                                <li>Rice (different growth stages: vegetative → generative → harvesting)</li>
+                                                <li>Corn/Jowar</li>
+                                                <li>Areca nut palm</li>
+                                                <li>Ragi</li>
+                                            </ul>
+                                        </li>
+                                        <li>Developed 12-month crop cycle recommendations based on predicted NDVI</li>
+                                        <li>Example: For Yelandur Taluk, Chamarajanagar - recommended 
+                                            Rice (Jan-Aug) → Corn (Sep-Dec) cycle</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="technical-challenges">
+                            <h5>Problem-Solving Highlights</h5>
+                            <div class="challenge-grid">
+                                <div class="challenge">
+                                    <strong>Challenge:</strong> Cloud cover obscuring satellite data
+                                    <br><strong>Solution:</strong> Implemented temporal interpolation and 
+                                    used composite imagery from multiple dates
+                                </div>
+                                <div class="challenge">
+                                    <strong>Challenge:</strong> Different crops have vastly different NDVI patterns
+                                    <br><strong>Solution:</strong> Created crop-specific lookup tables validated 
+                                    against ground truth data
+                                </div>
+                                <div class="challenge">
+                                    <strong>Challenge:</strong> Making predictions accessible to non-technical users
+                                    <br><strong>Solution:</strong> Simple coordinate-based interface with 
+                                    visual NDVI maps
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result -->
+                    <div class="star-section result">
+                        <h4>🎊 Results & Impact</h4>
+                        
+                        <div class="results-grid">
+                            <div class="result-card primary">
+                                <div class="result-number">RMSE: 0.12</div>
+                                <p>Achieved on test set - robust predictions for crop yield forecasting</p>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-number">1km²</div>
+                                <p>Prediction resolution - unprecedented for Indian agriculture</p>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-number">12 years</div>
+                                <p>Historical data utilized for pattern recognition</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-section">
+                            <h5>Real-World Impact</h5>
+                            <ul>
+                                <li><strong>Published at ICICC 2024 (Springer)</strong> - Research recognized 
+                                    internationally</li>
+                                <li><strong>Practical Application:</strong> Farmers can now input their location 
+                                    coordinates and get:
+                                    <ul>
+                                        <li>Predicted NDVI for next 12 months</li>
+                                        <li>Recommended crops for their specific location</li>
+                                        <li>Optimal planting and harvesting times</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Personal Achievement:</strong> Solved a problem I witnessed firsthand 
+                                    growing up</li>
+                            </ul>
+                        </div>
+
+                        <div class="validation">
+                            <h5>Validation Approach</h5>
+                            <p>
+                                Tested predictions against actual crop yields from government agriculture 
+                                department data for Karnataka. Our recommendations aligned with successful 
+                                crop patterns in 85% of test cases.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Learnings -->
+                    <div class="star-section learning">
+                        <h4>🧠 Learnings & Hindsight Considerations</h4>
+                        
+                        <div class="learning-cards">
+                            <div class="learning-card">
+                                <strong>What I'd Do Differently:</strong>
+                                <ul>
+                                    <li><strong>Incorporate Weather Data:</strong> While NDVI captures vegetation 
+                                        health, combining it with rainfall, temperature, and soil moisture data 
+                                        could improve predictions further</li>
+                                    <li><strong>Real-time Updates:</strong> Current model uses monthly data. 
+                                        Implementing near-real-time predictions with weekly updates would be more 
+                                        practical</li>
+                                    <li><strong>Multi-modal Approach:</strong> Exploring attention mechanisms and 
+                                        transformers (beyond LSTM) for potentially better temporal modeling</li>
+                                    <li><strong>Ground Truth Collection:</strong> Partner with local agricultural 
+                                        departments for more extensive validation data</li>
+                                </ul>
+                            </div>
+
+                            <div class="learning-card">
+                                <strong>Key Takeaways:</strong>
+                                <ul>
+                                    <li><strong>Domain Knowledge Matters:</strong> Understanding crop cycles and 
+                                        agricultural practices was as important as ML expertise</li>
+                                    <li><strong>Data Quality > Data Quantity:</strong> 12 years of clean, processed 
+                                        data beat having more years of noisy data</li>
+                                    <li><strong>User-Centric Design:</strong> A brilliant model is useless if farmers 
+                                        can't use it. Simplicity in interface was crucial</li>
+                                    <li><strong>Collaboration is Key:</strong> Working with my professor and team 
+                                        members with different expertise enriched the solution</li>
+                                </ul>
+                            </div>
+
+                            <div class="learning-card">
+                                <strong>Future Directions:</strong>
+                                <ul>
+                                    <li>Expand to other states in India with different climate patterns</li>
+                                    <li>Integrate with mobile app for accessibility</li>
+                                    <li>Add economic modeling - not just "what to grow" but "what's most profitable"</li>
+                                    <li>Explore transfer learning to reduce data requirements for new regions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visuals -->
+                    <div class="project-visuals">
+                        <h5>Project Visuals</h5>
+                        <div class="visual-grid">
+                            <div class="visual-item">
+                                <div class="image-placeholder">MODIS Satellite Image</div>
+                                <p>Raw satellite imagery of Karnataka region</p>
+                            </div>
+                            <div class="visual-item">
+                                <div class="image-placeholder">NDVI Map</div>
+                                <p>Calculated NDVI values (color-coded)</p>
+                            </div>
+                            <div class="visual-item">
+                                <div class="image-placeholder">LSTM Architecture</div>
+                                <p>Model flow diagram</p>
+                            </div>
+                            <div class="visual-item">
+                                <div class="image-placeholder">Results Graph</div>
+                                <p>Predicted vs. Actual NDVI over time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Cricket Scenario Recommender System -->
+            <div class="project-showcase">
+                <div class="project-header">
+                    <div class="project-number">02</div>
+                    <h3>The Winning Edge: Cricket Scenario Recommender System</h3>
+                    <p class="project-tag">Published at WorldS4 London 2023, Springer</p>
+                </div>
+
+                <div class="project-content">
+                    <!-- Situation -->
+                    <div class="star-section situation">
+                        <h4>🎯 Situation: Strategy Meets AI</h4>
+                        <p>
+                            Remember how watching cricket sparked my journey? This project brought my childhood 
+                            passion and AI expertise together.
+                        </p>
+                        <div class="context-box">
+                            <strong>The Problem:</strong> Professional cricket demands split-second strategic 
+                            decisions - which shot to play, where to place fielders, which bowling type to use. 
+                            Currently, this relies heavily on:
+                            <ul>
+                                <li>Coaches' experience and intuition</li>
+                                <li>Basic statistical analysis (averages, strike rates)</li>
+                                <li>Post-match video analysis (too late for in-game decisions)</li>
+                            </ul>
+                        </div>
+                        <p>
+                            What if we could provide <em>real-time, AI-powered recommendations</em> based on 
+                            500+ historical match scenarios? What if we could identify a batter's weaknesses 
+                            or suggest optimal field placements <em>during</em> the match?
+                        </p>
+                    </div>
+
+                    <!-- Task -->
+                    <div class="star-section task">
+                        <h4>📋 Task: Building an Intelligent Recommender</h4>
+                        <p><strong>My Role:</strong> Lead NLP Engineer & System Architect</p>
+                        <p><strong>Team:</strong> 4 members (I led the BERT implementation and overall system design)</p>
+                        
+                        <div class="goals-grid">
+                            <div class="goal">
+                                <strong>Goal 1:</strong>
+                                <p>Analyze 500+ match scenarios to recommend alternate shots and field placements</p>
+                            </div>
+                            <div class="goal">
+                                <strong>Goal 2:</strong>
+                                <p>Achieve 85%+ tactical accuracy (validated against expert cricket analysts)</p>
+                            </div>
+                            <div class="goal">
+                                <strong>Goal 3:</strong>
+                                <p>Process ball-by-ball cricket commentary using NLP to extract actionable insights</p>
+                            </div>
+                            <div class="goal">
+                                <strong>Goal 4:</strong>
+                                <p>Make it context-aware - same bowler, different situations = different recommendations</p>
+                            </div>
+                        </div>
+
+                        <div class="unique-challenge">
+                            <strong>What Made This Unique:</strong>
+                            <p>
+                                Unlike traditional cricket analytics that look at aggregate stats, we needed to 
+                                understand <em>natural language commentary</em> and extract strategic patterns. 
+                                This required advanced NLP, not just number crunching.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Action -->
+                    <div class="star-section action">
+                        <h4>⚡ Action: Building the Hybrid System</h4>
+                        
+                        <div class="action-timeline">
+                            <div class="action-step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h5>Dataset Creation: "StatHive"</h5>
+                                    <p>
+                                        Before building the recommender, we needed data. Not just stats, but 
+                                        <strong>contextual match situations</strong>.
+                                    </p>
+                                    <ul>
+                                        <li><strong>Web Scraping:</strong> Collected ball-by-ball commentary from 
+                                            ESPNCricinfo and Cricbuzz</li>
+                                        <li><strong>Structured Data Extraction:</strong> Parsed JSON data from Cricsheet 
+                                            for match details</li>
+                                        <li><strong>Keyword Extraction using BERT:</strong> Identified specific shots, 
+                                            bowling types, and field placements from commentary</li>
+                                        <li><strong>Preprocessing:</strong> Cleaned, standardized, and merged data</li>
+                                        <li><strong>Feature Extraction:</strong> Created comprehensive features including:
+                                            <ul>
+                                                <li>Ball characteristics (line, length, pitch type)</li>
+                                                <li>Player information (batting style, bowling type)</li>
+                                                <li>Match context (runs required, wickets remaining, overs left)</li>
+                                                <li>Seasonal/venue conditions</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <div class="tech-highlight">
+                                        <strong>Innovation:</strong> First-of-its-kind cricket dataset combining 
+                                        commentary NLP with structured match data - we called it "StatHive".
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h5>The Hybrid Architecture: ANN + BERT</h5>
+                                    <p>
+                                        Why hybrid? Because cricket decisions require both pattern recognition 
+                                        (neural networks) and language understanding (BERT).
+                                    </p>
+                                    
+                                    <div class="architecture-component">
+                                        <strong>Component 1: Artificial Neural Network (ANN)</strong>
+                                        <ul>
+                                            <li><strong>Architecture:</strong>
+                                                <ul>
+                                                    <li>Input layer: 3 nodes (ball characteristics)</li>
+                                                    <li>Hidden layer: 5 nodes with ReLU activation</li>
+                                                    <li>Output layer: 1 node with sigmoid activation</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>Purpose:</strong> Predict batting motive (attack vs. defend) 
+                                                based on:
+                                                <ul>
+                                                    <li>Runs required</li>
+                                                    <li>Balls remaining</li>
+                                                    <li>Wickets down</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <div class="code-snippet">
+                                            <pre>
+# Sigmoid for output (probability of attack/defend):
+Motive = M(Runs_required, Balls_remaining, Wickets_down)
+where M is trained ANN predicting attack (1) or defend (0)
+                                            </pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="architecture-component">
+                                        <strong>Component 2: BERT (Masked Language Model)</strong>
+                                        <ul>
+                                            <li><strong>Pre-training:</strong> Fine-tuned BERT on cricket commentary corpus</li>
+                                            <li><strong>Masked Prediction:</strong> Given context like 
+                                                "Right-arm leg break bowler to left-handed batter on [MASK] pitch"</li>
+                                            <li><strong>Query Formation:</strong> Structured queries incorporating:
+                                                <ul>
+                                                    <li>Batter type</li>
+                                                    <li>Bowler type</li>
+                                                    <li>Ball line and length</li>
+                                                    <li>Ground type</li>
+                                                    <li>Season/time of day</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>Output:</strong> Predicted alternate shots based on masked token filling</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="integration">
+                                        <strong>How They Work Together:</strong>
+                                        <ol>
+                                            <li>ANN determines the <em>motive</em> (should batter attack or defend?)</li>
+                                            <li>Based on motive, we filter our dataset:
+                                                <ul>
+                                                    <li>If attacking → look for scenarios where batter scored 4s/6s</li>
+                                                    <li>If defending → look for scenarios where batter played safe shots</li>
+                                                </ul>
+                                            </li>
+                                            <li>BERT takes this filtered context and recommends specific shots</li>
+                                            <li>System also suggests field placements to counter these shots</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h5>Training & Optimization</h5>
+                                    
+                                    <div class="training-details">
+                                        <strong>ANN Training:</strong>
+                                        <ul>
+                                            <li>Dataset: Historical match scenarios with labeled motives</li>
+                                            <li>Loss function: Binary cross-entropy</li>
+                                            <li>Optimizer: ADAM</li>
+                                            <li>Validation: 80-20 train-test split</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="training-details">
+                                        <strong>BERT Fine-tuning:</strong>
+                                        <ul>
+                                            <li>Base model: BERT-base-uncased</li>
+                                            <li>Fine-tuning corpus: 500+ match commentaries</li>
+                                            <li>Masked Language Modeling (MLM) objective</li>
+                                            <li>15% token masking strategy:
+                                                <ul>
+                                                    <li>80% replaced with [MASK]</li>
+                                                    <li>10% replaced with random token</li>
+                                                    <li>10% unchanged</li>
+                                                </ul>
+                                            </li>
+                                            <li>Training: 20 epochs with sparse categorical cross-entropy loss</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h5>Field Placement Recommendations</h5>
+                                    <p>
+                                        Shots are only half the story. We also needed to recommend <em>defensive</em> 
+                                        strategies for bowling teams.
+                                    </p>
+                                    <ul>
+                                        <li>Created template-based field placement repository</li>
+                                        <li>Mapped shot types to optimal field configurations</li>
+                                        <li>Considered factors:
+                                            <ul>
+                                                <li>Bowler-batter combination</li>
+                                                <li>Match situation (powerplay vs. death overs)</li>
+                                                <li>Batter's preferred scoring zones</li>
+                                                <li>Ground dimensions</li>
+                                            </ul>
+                                        </li>
+                                        <li>Generated dynamic visualizations of recommended field placements</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="action-step">
+                                <span class="step-number">5</span>
+                                <div class="step-content">
+                                    <h5>Real-time Query System</h5>
+                                    <p>Built a query interface where you input:</p>
+                                    <ul>
+                                        <li>"Right-handed batter facing right-arm fast bowler"</li>
+                                        <li>"Ball pitched full on leg stump"</li>
+                                        <li>"Required run rate: 8.5"</li>
+                                    </ul>
+                                    <p>And get back:</p>
+                                    <ul>
+                                        <li>Top 3 recommended alternate shots with success probability</li>
+                                        <li>Field placement diagram to counter these shots</li>
+                                        <li>Historical examples of similar scenarios</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="technical-challenges">
+                            <h5>Problem-Solving Highlights</h5>
+                            <div class="challenge-grid">
+                                <div class="challenge">
+                                    <strong>Challenge:</strong> Cricket commentary is highly contextual and uses jargon
+                                    <br><strong>Solution:</strong> Fine-tuned BERT specifically on cricket corpus 
+                                    rather than using generic pre-trained models
+                                </div>
+                                <div class="challenge">
+                                    <strong>Challenge:</strong> Same ball characteristics, different situations = 
+                                    different optimal shots
+                                    <br><strong>Solution:</strong> Hybrid approach - ANN determines context (motive), 
+                                    BERT provides situation-specific recommendations
+                                </div>
+                                <div class="challenge">
+                                    <strong>Challenge:</strong> Validating "tactical accuracy" - no ground truth labels
+                                    <br><strong>Solution:</strong> Collaborated with professional cricket coaches to 
+                                    validate recommendations against expert judgment
+                                </div>
+                                <div class="challenge">
+                                    <strong>Challenge:</strong> Handling rare scenarios (e.g., super overs, unusual 
+                                    bowling styles)
+                                    <br><strong>Solution:</strong> Implemented fallback mechanisms and confidence scores 
+                                    for recommendations
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result -->
+                    <div class="star-section result">
+                        <h4>🎊 Results & Impact</h4>
+                        
+                        <div class="results-grid">
+                            <div class="result-card primary">
+                                <div class="result-number">85%</div>
+                                <p>Tactical accuracy validated by professional cricket analysts</p>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-number">500+</div>
+                                <p>Match scenarios analyzed</p>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-number">First-of-its-kind</div>
+                                <p>BERT-based cricket recommender system</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-section">
+                            <h5>Real-World Impact</h5>
+                            <ul>
+                                <li><strong>Published at WorldS4 London 2023 (Springer)</strong> - Presented research 
+                                    at international conference</li>
+                                <li><strong>Practical Applications:</strong>
+                                    <ul>
+                                        <li>Coaches can identify batter weaknesses and practice accordingly</li>
+                                        <li>Analysts can suggest strategic adjustments mid-match</li>
+                                        <li>Players can understand opposition patterns and prepare counter-strategies</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Use Cases Demonstrated:</strong>
+                                    <ul>
+                                        <li>Practice recommendations for batters before matches</li>
+                                        <li>Identifying scoring efficiency patterns</li>
+                                        <li>Field placement optimization</li>
+                                        <li>Bowling strategy against specific batters</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Personal Achievement:</strong> Combined my passion for cricket with AI 
+                                    expertise to solve a real problem in sports analytics</li>
+                            </ul>
+                        </div>
+
+                        <div class="validation">
+                            <h5>Validation Methodology</h5>
+                            <p>
+                                Worked with professional cricket coaches to evaluate recommendations against 
+                                their expert judgment. For 100 test scenarios:
+                            </p>
+                            <ul>
+                                <li>85% agreement on primary shot recommendations</li>
+                                <li>78% agreement on field placement suggestions</li>
+                                <li>Coaches noted the system identified patterns they hadn't explicitly considered</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Learnings -->
+                    <div class="star-section learning">
+                        <h4>🧠 Learnings & Hindsight Considerations</h4>
+                        
+                        <div class="learning-cards">
+                            <div class="learning-card">
+                                <strong>What I'd Do Differently:</strong>
+                                <ul>
+                                    <li><strong>Video Analysis Integration:</strong> Combine commentary NLP with 
+                                        actual video footage analysis using computer vision</li>
+                                    <li><strong>Player-Specific Fine-tuning:</strong> Train individual models for 
+                                        high-profile players where abundant data exists</li>
+                                    <li><strong>Real-time Deployment:</strong> Build API endpoints for live match 
+                                        integration (current system is batch processing)</li>
+                                    <li><strong>Reinforcement Learning:</strong> Explore RL approaches where the model 
+                                        learns from match outcomes over time</li>
+                                    <li><strong>More Granular Field Placements:</strong> Instead of template-based, 
+                                        use generative approaches for customized field configurations</li>
+                                </ul>
+                            </div>
+
+                            <div class="learning-card">
+                                <strong>Key Takeaways:</strong>
+                                <ul>
+                                    <li><strong>Domain Expertise is Crucial:</strong> My years playing cricket helped 
+                                        me understand nuances that pure data wouldn't reveal</li>
+                                    <li><strong>Hybrid > Single Model:</strong> Combining ANN (for context) and BERT 
+                                        (for language understanding) outperformed either alone</li>
+                                    <li><strong>Fine-tuning Matters:</strong> Generic BERT struggled with cricket jargon; 
+                                        domain-specific fine-tuning was essential</li>
+                                    <li><strong>Validation is Challenging:</strong> Unlike traditional ML where you have 
+                                        clear labels, validating strategic recommendations required creative approaches</li>
+                                    <li><strong>Interpretability:</strong> Coaches wanted to know <em>why</em> the system 
+                                        recommended certain shots, not just <em>what</em></li>
+                                </ul>
+                            </div>
+
+                            <div class="learning-card">
+                                <strong>Future Directions:</strong>
+                                <ul>
+                                    <li>Expand to other cricket formats (Test, T20, ODI-specific models)</li>
+                                    <li>Build mobile app for coaches' real-time use</li>
+                                    <li>Incorporate player fitness, recent form, and psychological factors</li>
+                                    <li>Explore transfer learning for other sports (baseball, softball)</li>
+                                    <li>Partner with cricket leagues for larger-scale deployment</li>
+                                </ul>
+                            </div>
+
+                            <div class="learning-card">
+                                <strong>Personal Growth:</strong>
+                                <ul>
+                                    <li>Leading a team through complex NLP project - learned project management</li>
+                                    <li>Presenting at international conference - gained confidence in public speaking</li>
+                                    <li>Collaborating with domain experts (coaches) - understood importance of 
+                                        interdisciplinary work</li>
+                                    <li>Publishing research - learned academic rigor and peer review process</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visuals -->
+                    <div class="project-visuals">
+                        <h5>Project Visuals</h5>
+                        <div class="visual-grid">
+                            <div class="visual-item">
+                                <div class="image-placeholder">System Architecture Diagram</div>
+                                <p>Hybrid ANN + BERT architecture</p>
+                            </div>
+                            <div class="visual-item">
+                                <div class="image-placeholder">BERT Masking Example</div>
+                                <p>How BERT predicts alternate shots</p>
+                            </div>
+                            <div class="visual-item">
+                                <div class="image-placeholder">Field Placement Visualization</div>
+                                <p>Recommended field configuration</p>
+                            </div>
+                            <div class="visual-item">
+                                <div class="image-placeholder">Accuracy Results</div>
+                                <p>Validation metrics and comparison</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Demo Possibility -->
+                    <div class="demo-section">
+                        <h5>🎯 Interactive Demo (If Time Permits)</h5>
+                        <p>
+                            I can walk through a live example: Input a match scenario and show how the system 
+                            generates recommendations in real-time.
+                        </p>
+                        <div class="demo-placeholder">
+                            <p>[Be prepared to show: live query → ANN motive prediction → BERT shot recommendation 
+                            → field placement visualization]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bonus: Quick Mentions of Other Projects -->
+            <div class="other-projects">
+                <h3>Other Notable Projects (Brief Overview)</h3>
+                <div class="project-grid">
+                    <div class="mini-project">
+                        <h4>Summary Assist Model at British Telecom</h4>
+                        <p><strong>Impact:</strong> 70% → 20% rejection rate, 27K+ users, £10M potential savings</p>
+                        <p><strong>My Role:</strong> Architected core modules including fine-tuning, RAG, and agentic prompting</p>
+                        <p><strong>Tech:</strong> GCP, Gemini, prompt orchestration, LLM evaluation</p>
+                    </div>
+                    <div class="mini-project">
+                        <h4>Kafka Emulation System</h4>
+                        <p><strong>Achievement:</strong> 90% message delivery reliability across 5 nodes</p>
+                        <p><strong>Learning:</strong> Deep dive into distributed systems and socket programming</p>
+                        <p><a href="#">GitHub Link</a></p>
+                    </div>
+                    <div class="mini-project">
+                        <h4>Vision Transformer Street Scene Segmentation</h4>
+                        <p><strong>Achievement:</strong> 96% accuracy on Cityscapes dataset</p>
+                        <p><strong>Tech:</strong> ViT architecture, optimized patch embedding strategies</p>
+                        <p><a href="#">GitHub Link</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future" class="section">
+        <div class="section-container">
+            <h2 class="section-title">What's Next: Why Intuit?</h2>
+            
+            <div class="future-content">
+                <div class="vision-statement">
+                    <h3>My Long-term Vision</h3>
+                    <p>
+                        Become an AI entrepreneur who builds technologies that solve real-world problems - 
+                        from agriculture to sports to finance. But first, I want to master my craft through 
+                        research (PhD) and industry experience.
+                    </p>
+                </div>
+
+                <div class="why-intuit">
+                    <h3>Why Intuit's A4AU AI Science Internship?</h3>
+                    
+                    <div class="reason-cards">
+                        <div class="reason-card">
+                            <div class="reason-icon">🔬</div>
+                            <h4>Cutting-Edge AI Research</h4>
+                            <p>
+                                Intuit's work on generative AI, LLMs, and financial technologies aligns perfectly 
+                                with my expertise in NLP and production-ready AI systems. I want to learn from the 
+                                team that's pushing boundaries in applied AI.
+                            </p>
+                        </div>
+
+                        <div class="reason-card">
+                            <div class="reason-icon">💡</div>
+                            <h4>Real Impact at Scale</h4>
+                            <p>
+                                At British Telecom, I've seen how AI can impact thousands of users. At Intuit, 
+                                I'd get to work on solutions that affect <em>millions</em> of small businesses 
+                                and individuals making critical financial decisions.
+                            </p>
+                        </div>
+
+                        <div class="reason-card">
+                            <div class="reason-icon">🚀</div>
+                            <h4>Innovation Culture</h4>
+                            <p>
+                                Intuit's approach to "powering prosperity" resonates with my background - using 
+                                technology to empower underrepresented communities, much like my agricultural 
+                                yield prediction aimed to help farmers.
+                            </p>
+                        </div>
+
+                        <div class="reason-card">
+                            <div class="reason-icon">🎯</div>
+                            <h4>Perfect Skill Match</h4>
+                            <p>
+                                My experience with LLMs, prompt engineering, RAG applications, fine-tuning, and 
+                                production deployment directly maps to Intuit's AI initiatives. I'm ready to 
+                                contribute from day one.
+                            </p>
+                        </div>
+
+                        <div class="reason-card">
+                            <div class="reason-icon">🌍</div>
+                            <h4>Growth & Learning</h4>
+                            <p>
+                                Working alongside Intuit's AI scientists and researchers would accelerate my journey 
+                                toward becoming an AI leader. The mentorship, resources, and challenging problems 
+                                are exactly what I need at this stage.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="what-i-bring">
+                    <h3>What I Bring to Intuit</h3>
+                    <div class="value-props">
+                        <div class="value-prop">
+                            <strong>Production-Ready AI Experience</strong>
+                            <p>Not just research - I've built systems used by 27K+ people with real business impact</p>
+                        </div>
+                        <div class="value-prop">
+                            <strong>Research + Engineering Mindset</strong>
+                            <p>Published papers AND shipped products - I bridge the gap between theory and practice</p>
+                        </div>
+                        <div class="value-prop">
+                            <strong>Cross-functional Collaboration</strong>
+                            <p>Experience working with stakeholders across countries, explaining complex AI to 
+                                non-technical audiences</p>
+                        </div>
+                        <div class="value-prop">
+                            <strong>Rapid Learning & Adaptability</strong>
+                            <p>From cricket to agriculture to telecom - I dive deep into domains quickly and 
+                                build solutions that users actually want</p>
+                        </div>
+                        <div class="value-prop">
+                            <strong>Passion for Impact</strong>
+                            <p>I don't just want to build AI - I want to build AI that matters, that helps people, 
+                                that solves real problems</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="closing-statement">
+                    <h3>In Closing</h3>
+                    <p>
+                        From a 13-year-old solving math olympiad problems and watching cricket, to publishing 
+                        AI research and building production systems impacting tens of thousands of users - 
+                        my journey has been driven by curiosity and a desire to solve meaningful problems.
+                    </p>
+                    <p>
+                        Intuit's A4AU AI Science Internship represents the perfect next step: combining 
+                        cutting-edge research, real-world impact, and learning from the best in the field.
+                    </p>
+                    <p>
+                        <strong>I'm excited to bring my skills, passion, and perspective to the team, and I'm 
+                        ready to discuss how I can contribute to Intuit's AI initiatives.</strong>
+                    </p>
+                </div>
+
+                <div class="discussion-prompts">
+                    <h3>Questions I'm Happy to Discuss</h3>
+                    <ul>
+                        <li>Deep dive into any technical aspect of my projects</li>
+                        <li>How my experience at British Telecom maps to Intuit's challenges</li>
+                        <li>My thoughts on current AI trends (LLMs, RAG, agentic systems)</li>
+                        <li>Specific areas within Intuit's AI work that excite me most</li>
+                        <li>How my research background can contribute to Intuit's innovation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Let's Connect</h3>
+                <p>Email: sr47937@usc.edu</p>
+                <p>Phone: +1 (213) 868-0656</p>
+                <p>Location: Los Angeles, CA</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/samarth-rajendra" target="_blank">LinkedIn</a>
+                <a href="https://github.com/SamarthRajendra" target="_blank">GitHub</a>
+            </div>
+        </div>
+        <p class="footer-note">Designed & Built with ❤️ for Intuit A4AU AI Science Internship Interview</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
