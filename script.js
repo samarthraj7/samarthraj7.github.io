@@ -134,23 +134,26 @@ function updateActiveSection(sectionId) {
 // Scroll Animations
 function setupScrollAnimations() {
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !entry.target.classList.contains('revealed')) {
                 entry.target.classList.add('revealed');
                 
-                // Special animations for different elements
-                if (entry.target.classList.contains('timeline-item')) {
-                    animateTimelineItem(entry.target);
-                } else if (entry.target.classList.contains('beyond-card')) {
-                    animateCard(entry.target);
-                } else if (entry.target.classList.contains('project-showcase')) {
-                    animateProject(entry.target);
-                }
+                // Add delay for staggered animations
+                setTimeout(() => {
+                    // Special animations for different elements
+                    if (entry.target.classList.contains('timeline-item')) {
+                        animateTimelineItem(entry.target);
+                    } else if (entry.target.classList.contains('beyond-card')) {
+                        animateCard(entry.target);
+                    } else if (entry.target.classList.contains('project-showcase')) {
+                        animateProject(entry.target);
+                    }
+                }, 200);
             }
         });
     }, observerOptions);
@@ -196,13 +199,13 @@ function animateTimelineItem(item) {
 function animateTimelineIcon(item) {
     const icon = item.querySelector('.timeline-icon');
     if (icon) {
-        icon.style.transform = 'translateX(-50%) scale(1.2) rotate(10deg)';
-        icon.style.boxShadow = '0 0 50px rgba(0, 242, 254, 0.8)';
+        icon.style.transform = 'translateX(-50%) scale(1.15) rotate(5deg)';
+        icon.style.boxShadow = '0 0 40px rgba(116, 185, 255, 0.6)';
         
         setTimeout(() => {
-            icon.style.transform = 'translateX(-50%) scale(1)';
-            icon.style.boxShadow = '0 0 30px rgba(0, 242, 254, 0.5)';
-        }, 300);
+            icon.style.transform = 'translateX(-50%) scale(1) rotate(0deg)';
+            icon.style.boxShadow = '0 0 30px rgba(116, 185, 255, 0.4)';
+        }, 400);
     }
 }
 
@@ -332,10 +335,10 @@ function toggleProjectContent(project) {
 }
 
 function setupBeyondCardInteractions() {
-    const cards = document.querySelectorAll('.beyond-card');
+    const cards = document.querySelectorAll('.beyond-card, .metric, .focus-item');
     
     cards.forEach(card => {
-        // Add tilt effect on mouse move
+        // Add subtle tilt effect on mouse move
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -344,10 +347,10 @@ function setupBeyondCardInteractions() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
+            const rotateX = (y - centerY) / 15;
+            const rotateY = (centerX - x) / 15;
             
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
         });
         
         card.addEventListener('mouseleave', () => {
@@ -359,14 +362,17 @@ function setupBeyondCardInteractions() {
 function setupParallaxEffects() {
     const parallaxElements = document.querySelectorAll('.hero-image, .timeline-icon');
     
-    window.addEventListener('scroll', () => {
+    // Use throttled scroll handler for better performance
+    const throttledScroll = throttle(() => {
         const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
         
-        parallaxElements.forEach(element => {
+        parallaxElements.forEach((element, index) => {
+            const rate = (scrolled * -0.3) + (index * 10); // Vary the rate slightly
             element.style.transform = `translateY(${rate}px)`;
         });
-    });
+    }, 16); // ~60fps
+    
+    window.addEventListener('scroll', throttledScroll);
 }
 
 // Section Animations
