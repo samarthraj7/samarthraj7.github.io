@@ -534,18 +534,11 @@ body::before {
     font-size: 0.9rem;
 }
 
-/* .timeline-image {
-  width: 12cm;
-  aspect-ratio: 1 / 1;     /* height follows width */
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-} */ */
-
 .timeline-image img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;      /* or 'cover' */
+  height: auto;          /* keep aspect ratio */
+  border-radius: 12px;   /* optional: match the card’s rounded feel */
 }
 
 
