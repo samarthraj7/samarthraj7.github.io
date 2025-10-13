@@ -349,11 +349,10 @@ body::before {
     box-shadow: 0 10px 30px rgba(0, 242, 254, 0.3);
 }
 
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: slideInRight 1s ease-out;
+.hero-image img {
+  width: 12cm;
+  height: 12cm;       /* use object-fit: cover or contain */
+  object-fit: contain;
 }
 
 .image-placeholder {
