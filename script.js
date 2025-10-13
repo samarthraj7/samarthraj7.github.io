@@ -260,7 +260,7 @@ function setupInteractiveElements() {
     setupBeyondCardInteractions();
     
     // Parallax effects
-    setupParallaxEffects();
+    // setupParallaxEffects();
 }
 
 function animateStats() {
@@ -359,21 +359,21 @@ function setupBeyondCardInteractions() {
     });
 }
 
-function setupParallaxEffects() {
-    const parallaxElements = document.querySelectorAll('.hero-image, .timeline-icon');
+// function setupParallaxEffects() {
+//     const parallaxElements = document.querySelectorAll('.hero-image, .timeline-icon');
     
-    // Use throttled scroll handler for better performance
-    const throttledScroll = throttle(() => {
-        const scrolled = window.pageYOffset;
+//     // Use throttled scroll handler for better performance
+//     const throttledScroll = throttle(() => {
+//         const scrolled = window.pageYOffset;
         
-        parallaxElements.forEach((element, index) => {
-            const rate = (scrolled * -0.3) + (index * 10); // Vary the rate slightly
-            element.style.transform = `translateY(${rate}px)`;
-        });
-    }, 16); // ~60fps
+//         parallaxElements.forEach((element, index) => {
+//             const rate = (scrolled * -0.3) + (index * 10); // Vary the rate slightly
+//             element.style.transform = `translateY(${rate}px)`;
+//         });
+//     }, 16); // ~60fps
     
-    window.addEventListener('scroll', throttledScroll);
-}
+//     window.addEventListener('scroll', throttledScroll);
+// }
 
 // Section Animations
 function animateHeroSection() {
