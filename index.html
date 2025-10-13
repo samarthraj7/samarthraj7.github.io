@@ -505,310 +505,164 @@
         <div class="section-container">
             <h2 class="section-title">Projects I'm Most Proud Of</h2>
             <p class="section-intro">
-                These aren't just projects - they're problems I deeply cared about solving. 
                 Let me walk you through two that represent my journey.
             </p>
 
-            <!-- Project 1: Agricultural Yield Prediction -->
+             
+            <!-- Project 1: Summary Assist – Generative AI Platform -->
             <div class="project-showcase">
-                <div class="project-header">
-                    <div class="project-number">01</div>
-                    <h3>Agricultural Yield Prediction with Satellite Data</h3>
-                    <p class="project-tag">Published at ICICC 2024, Springer</p>
+              <div class="project-header">
+                <div class="project-number">01</div>
+                <h3>Summary Assist – Enterprise Generative AI Platform</h3>
+                <p class="project-tag">British Telecom | Multi-LLM RAG Pipeline | AWS & GCP Deployment</p>
+              </div>
+            
+              <div class="project-content">
+            
+                <!-- Situation -->
+                <div class="star-section situation">
+                  <h4>🎯 Situation: Need for Reliable Enterprise Summarization</h4>
+                  <p>
+                    Across large internal operations, teams produced massive volumes of service notes and technical documents.
+                    Manual summarization created delays and inconsistencies, while earlier automated solutions suffered from
+                    low factual accuracy and poor contextual grounding.  
+                    Leadership aimed to design a unified Generative AI system that could deliver
+                    <strong>human-quality summaries at scale</strong> and reduce review overhead.
+                  </p>
+                  <div class="context-box">
+                    <strong>Challenge:</strong> Build a scalable, explainable, multi-model LLM workflow that integrates seamlessly
+                    into existing cloud infrastructure while maintaining accuracy, speed, and compliance.
+                  </div>
                 </div>
-
-                <div class="project-content">
-                    <!-- Situation -->
-                    <div class="star-section situation">
-                        <h4>🎯 Situation: A Personal Problem</h4>
-                        <p>
-                            Remember my father's farming struggles? This was my chance to address it. 
-                            Farmers in Karnataka (and across India) lack access to precise, location-specific 
-                            crop forecasts. They rely on intuition and generic regional data, leading to:
-                        </p>
+            
+                <!-- Task -->
+                <div class="star-section task">
+                  <h4>📋 Task: Develop an End-to-End LLM Orchestration System</h4>
+                  <p><strong>My Role:</strong> Lead Engineer – Generative AI Integration & Evaluation</p>
+                  <p><strong>Objective:</strong> Design a configurable retrieval-augmented generation (RAG) platform that can
+                    orchestrate multiple large-language models, evaluate their outputs automatically, and scale across business
+                    domains via AWS and GCP.</p>
+            
+                  <div class="goals-grid">
+                    <div class="goal">
+                      <strong>Goal 1:</strong>
+                      <p>Cut summary rejection rate by more than half within the first release cycle.</p>
+                    </div>
+                    <div class="goal">
+                      <strong>Goal 2:</strong>
+                      <p>Standardize data pipelines and prompt orchestration for multiple LLM providers.</p>
+                    </div>
+                    <div class="goal">
+                      <strong>Goal 3:</strong>
+                      <p>Deliver a cloud-native, cost-optimized deployment serving thousands of internal users.</p>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Action -->
+                <div class="star-section action">
+                  <h4>⚡ Action: Engineering the Solution</h4>
+            
+                  <div class="action-timeline">
+                    <div class="action-step">
+                      <span class="step-number">1</span>
+                      <div class="step-content">
+                        <h5>Retrieval-Augmented Generation (RAG)</h5>
                         <ul>
-                            <li>Poor crop selection decisions</li>
-                            <li>Suboptimal yield</li>
-                            <li>Financial instability</li>
+                          <li>Implemented vector-based document retrieval using semantic embeddings to supply grounded context
+                              to LLMs and minimize hallucinations.</li>
+                          <li>Designed dynamic context-window logic and adaptive prompt templates for varied document types.</li>
                         </ul>
-                        <div class="context-box">
-                            <strong>The Challenge:</strong> Agricultural predictions in India are typically 
-                            region-wide. But conditions vary dramatically even within a few kilometers. 
-                            Could we provide <em>square-kilometer level</em> predictions?
-                        </div>
+                      </div>
                     </div>
-
-                    <!-- Task -->
-                    <div class="star-section task">
-                        <h4>📋 Task: Building a Hyper-Local Prediction System</h4>
-                        <p><strong>My Role:</strong> Lead Researcher & Implementation Lead</p>
-                        <p><strong>Team:</strong> 4 members (I led the data science approach)</p>
-                        
-                        <div class="goals-grid">
-                            <div class="goal">
-                                <strong>Goal 1:</strong>
-                                <p>Achieve predictions at 1km² resolution (unprecedented for our region)</p>
-                            </div>
-                            <div class="goal">
-                                <strong>Goal 2:</strong>
-                                <p>Use 12 years of historical data to capture seasonal patterns</p>
-                            </div>
-                            <div class="goal">
-                                <strong>Goal 3:</strong>
-                                <p>Make it practical - farmers should be able to use coordinates to get forecasts</p>
-                            </div>
-                        </div>
+            
+                    <div class="action-step">
+                      <span class="step-number">2</span>
+                      <div class="step-content">
+                        <h5>Multi-Model LLM Integration</h5>
+                        <ul>
+                          <li>Connected multiple foundation models (GPT, Claude Sonnet, Llama, Gemini) through a
+                              config-driven orchestration layer.</li>
+                          <li>Built automatic fallback and routing mechanisms based on latency, cost, and content complexity.</li>
+                        </ul>
+                      </div>
                     </div>
-
-                    <!-- Action -->
-                    <div class="star-section action">
-                        <h4>⚡ Action: The Technical Journey</h4>
-                        
-                        <div class="action-timeline">
-                            <div class="action-step">
-                                <span class="step-number">1</span>
-                                <div class="step-content">
-                                    <h5>Data Collection & Processing</h5>
-                                    <ul>
-                                        <li>Extracted 12 years of <strong>MODIS satellite imagery</strong> from NASA's EarthData</li>
-                                        <li>Calculated <strong>NDVI (Normalized Difference Vegetation Index)</strong>:
-                                            <br><code>NDVI = (NIR - Red) / (NIR + Red)</code>
-                                        </li>
-                                        <li>Processed imagery for Karnataka region: extracted Red and NIR bands</li>
-                                        <li>Generated monthly averages to address seasonal variations</li>
-                                    </ul>
-                                    <div class="tech-highlight">
-                                        <strong>Challenge Solved:</strong> MODIS provides 30-day intervals - we needed 
-                                        monthly granularity for crop cycle alignment.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="action-step">
-                                <span class="step-number">2</span>
-                                <div class="step-content">
-                                    <h5>Model Architecture: Why LSTM?</h5>
-                                    <p>
-                                        Initial attempts with traditional ML models (Random Forest, XGBoost) showed limitations 
-                                        in capturing temporal dependencies. Agricultural patterns aren't just about current 
-                                        conditions - they depend on what happened in previous months.
-                                    </p>
-                                    <div class="model-choice">
-                                        <strong>LSTM (Long Short-Term Memory) Network Architecture:</strong>
-                                        <ul>
-                                            <li>3 sequential LSTM layers (capturing long-term dependencies)</li>
-                                            <li>Time step: 12 months (one full crop cycle)</li>
-                                            <li>Dense output layer with MSE loss function</li>
-                                            <li>ADAM optimizer for efficient training</li>
-                                        </ul>
-                                    </div>
-                                    <div class="code-snippet">
-                                        <pre>
-# LSTM equations for one time step:
-i_t = σ(W_i · [h_{t-1}, x_t] + b_i)  # Input gate
-f_t = σ(W_f · [h_{t-1}, x_t] + b_f)  # Forget gate
-o_t = σ(W_o · [h_{t-1}, x_t] + b_o)  # Output gate
-C_t = f_t · C_{t-1} + i_t · tanh(W_c · [h_{t-1}, x_t] + b_c)
-h_t = o_t · tanh(C_t)
-                                        </pre>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="action-step">
-                                <span class="step-number">3</span>
-                                <div class="step-content">
-                                    <h5>Data Preprocessing & Feature Engineering</h5>
-                                    <ul>
-                                        <li>
-                                            <strong>Min-Max Normalization:</strong> Scaled NDVI values to [0,1] range
-                                            <br><code>x' = (x - min(x)) / (max(x) - min(x))</code>
-                                        </li>
-                                        <li>Created 144 data points per location (12 years × 12 months)</li>
-                                        <li>Implemented 80-20 train-test split with temporal awareness 
-                                            (no data leakage from future)</li>
-                                        <li>Handled missing data from cloud cover using interpolation</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="action-step">
-                                <span class="step-number">4</span>
-                                <div class="step-content">
-                                    <h5>Training & Optimization</h5>
-                                    <ul>
-                                        <li>Trained over 20 epochs with early stopping</li>
-                                        <li>Monitored training/validation loss curves for overfitting</li>
-                                        <li>Experimented with different learning rates and batch sizes</li>
-                                        <li>Cross-validated across different regions of Karnataka</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="action-step">
-                                <span class="step-number">5</span>
-                                <div class="step-content">
-                                    <h5>Practical Application Layer</h5>
-                                    <p>
-                                        Building the model was half the battle. Making it usable was the other half.
-                                    </p>
-                                    <ul>
-                                        <li>Created crop-specific NDVI value tables for:
-                                            <ul>
-                                                <li>Rice (different growth stages: vegetative → generative → harvesting)</li>
-                                                <li>Corn/Jowar</li>
-                                                <li>Areca nut palm</li>
-                                                <li>Ragi</li>
-                                            </ul>
-                                        </li>
-                                        <li>Developed 12-month crop cycle recommendations based on predicted NDVI</li>
-                                        <li>Example: For Yelandur Taluk, Chamarajanagar - recommended 
-                                            Rice (Jan-Aug) → Corn (Sep-Dec) cycle</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="technical-challenges">
-                            <h5>Problem-Solving Highlights</h5>
-                            <div class="challenge-grid">
-                                <div class="challenge">
-                                    <strong>Challenge:</strong> Cloud cover obscuring satellite data
-                                    <br><strong>Solution:</strong> Implemented temporal interpolation and 
-                                    used composite imagery from multiple dates
-                                </div>
-                                <div class="challenge">
-                                    <strong>Challenge:</strong> Different crops have vastly different NDVI patterns
-                                    <br><strong>Solution:</strong> Created crop-specific lookup tables validated 
-                                    against ground truth data
-                                </div>
-                                <div class="challenge">
-                                    <strong>Challenge:</strong> Making predictions accessible to non-technical users
-                                    <br><strong>Solution:</strong> Simple coordinate-based interface with 
-                                    visual NDVI maps
-                                </div>
-                            </div>
-                        </div>
+            
+                    <div class="action-step">
+                      <span class="step-number">3</span>
+                      <div class="step-content">
+                        <h5>Evaluation & Feedback Framework</h5>
+                        <ul>
+                          <li>Created an automated scoring system inspired by RAGAs to measure
+                              <em>relevance, factuality, and coherence</em>.</li>
+                          <li>Integrated human-feedback loops where reviewer corrections informed continuous prompt refinement.</li>
+                        </ul>
+                      </div>
                     </div>
-
-                    <!-- Result -->
-                    <div class="star-section result">
-                        <h4>🎊 Results & Impact</h4>
-                        
-                        <div class="results-grid">
-                            <div class="result-card primary">
-                                <div class="result-number">RMSE: 0.12</div>
-                                <p>Achieved on test set - robust predictions for crop yield forecasting</p>
-                            </div>
-                            <div class="result-card">
-                                <div class="result-number">1km²</div>
-                                <p>Prediction resolution - unprecedented for Indian agriculture</p>
-                            </div>
-                            <div class="result-card">
-                                <div class="result-number">12 years</div>
-                                <p>Historical data utilized for pattern recognition</p>
-                            </div>
-                        </div>
-
-                        <div class="impact-section">
-                            <h5>Real-World Impact</h5>
-                            <ul>
-                                <li><strong>Published at ICICC 2024 (Springer)</strong> - Research recognized 
-                                    internationally</li>
-                                <li><strong>Practical Application:</strong> Farmers can now input their location 
-                                    coordinates and get:
-                                    <ul>
-                                        <li>Predicted NDVI for next 12 months</li>
-                                        <li>Recommended crops for their specific location</li>
-                                        <li>Optimal planting and harvesting times</li>
-                                    </ul>
-                                </li>
-                                <li><strong>Personal Achievement:</strong> Solved a problem I witnessed firsthand 
-                                    growing up</li>
-                            </ul>
-                        </div>
-
-                        <div class="validation">
-                            <h5>Validation Approach</h5>
-                            <p>
-                                Tested predictions against actual crop yields from government agriculture 
-                                department data for Karnataka. Our recommendations aligned with successful 
-                                crop patterns in 85% of test cases.
-                            </p>
-                        </div>
+            
+                    <div class="action-step">
+                      <span class="step-number">4</span>
+                      <div class="step-content">
+                        <h5>Cloud Deployment & Scalability</h5>
+                        <ul>
+                          <li>Deployed services across AWS (Lambda, API Gateway, DynamoDB) and GCP (Vertex AI, BigQuery) for
+                              high availability.</li>
+                          <li>Implemented load-balanced micro-services and asynchronous inference pipelines, improving response
+                              latency by ~50 % while reducing operating costs by ~30 %.</li>
+                        </ul>
+                      </div>
                     </div>
-
-                    <!-- Learnings -->
-                    <div class="star-section learning">
-                        <h4>🧠 Learnings & Hindsight Considerations</h4>
-                        
-                        <div class="learning-cards">
-                            <div class="learning-card">
-                                <strong>What I'd Do Differently:</strong>
-                                <ul>
-                                    <li><strong>Incorporate Weather Data:</strong> While NDVI captures vegetation 
-                                        health, combining it with rainfall, temperature, and soil moisture data 
-                                        could improve predictions further</li>
-                                    <li><strong>Real-time Updates:</strong> Current model uses monthly data. 
-                                        Implementing near-real-time predictions with weekly updates would be more 
-                                        practical</li>
-                                    <li><strong>Multi-modal Approach:</strong> Exploring attention mechanisms and 
-                                        transformers (beyond LSTM) for potentially better temporal modeling</li>
-                                    <li><strong>Ground Truth Collection:</strong> Partner with local agricultural 
-                                        departments for more extensive validation data</li>
-                                </ul>
-                            </div>
-
-                            <div class="learning-card">
-                                <strong>Key Takeaways:</strong>
-                                <ul>
-                                    <li><strong>Domain Knowledge Matters:</strong> Understanding crop cycles and 
-                                        agricultural practices was as important as ML expertise</li>
-                                    <li><strong>Data Quality > Data Quantity:</strong> 12 years of clean, processed 
-                                        data beat having more years of noisy data</li>
-                                    <li><strong>User-Centric Design:</strong> A brilliant model is useless if farmers 
-                                        can't use it. Simplicity in interface was crucial</li>
-                                    <li><strong>Collaboration is Key:</strong> Working with my professor and team 
-                                        members with different expertise enriched the solution</li>
-                                </ul>
-                            </div>
-
-                            <div class="learning-card">
-                                <strong>Future Directions:</strong>
-                                <ul>
-                                    <li>Expand to other states in India with different climate patterns</li>
-                                    <li>Integrate with mobile app for accessibility</li>
-                                    <li>Add economic modeling - not just "what to grow" but "what's most profitable"</li>
-                                    <li>Explore transfer learning to reduce data requirements for new regions</li>
-                                </ul>
-                            </div>
-                        </div>
+                  </div>
+            
+                  <div class="technical-challenges">
+                    <h5>Problem-Solving Highlights</h5>
+                    <div class="challenge-grid">
+                      <div class="challenge">
+                        <strong>Challenge:</strong> Low factual accuracy in early summaries.<br>
+                        <strong>Solution:</strong> RAG grounding + automatic model selection to ensure contextual precision.
+                      </div>
+                      <div class="challenge">
+                        <strong>Challenge:</strong> Latency for long documents.<br>
+                        <strong>Solution:</strong> Parallel chunk retrieval and batched inference reduced end-to-end time by half.
+                      </div>
+                      <div class="challenge">
+                        <strong>Challenge:</strong> High inference cost at scale.<br>
+                        <strong>Solution:</strong> Adaptive routing to smaller or local models for lightweight requests.
+                      </div>
                     </div>
-
-                    <!-- Visuals -->
-                    <div class="project-visuals">
-                        <h5>Project Visuals</h5>
-                        <div class="visual-grid">
-                            <div class="visual-item">
-                                <div class="image-placeholder">MODIS Satellite Image</div>
-                                <p>Raw satellite imagery of Karnataka region</p>
-                            </div>
-                            <div class="visual-item">
-                                <div class="image-placeholder">NDVI Map</div>
-                                <p>Calculated NDVI values (color-coded)</p>
-                            </div>
-                            <div class="visual-item">
-                                <div class="image-placeholder">LSTM Architecture</div>
-                                <p>Model flow diagram</p>
-                            </div>
-                            <div class="visual-item">
-                                <div class="image-placeholder">Results Graph</div>
-                                <p>Predicted vs. Actual NDVI over time</p>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+            
+                <!-- Result -->
+                <div class="star-section result">
+                  <h4>🎊 Results & Impact</h4>
+                  <div class="results-grid">
+                    <div class="result-card primary">
+                      <div class="result-number">–50 %</div>
+                      <p>Reduction in summary rejection rates (≈ 70 % → ≈ 20 %).</p>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-number">27 k +</div>
+                      <p>Active users supported across business units.</p>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-number">£ 10 M</div>
+                      <p>Projected five-year savings through automation and efficiency gains.</p>
+                    </div>
+                  </div>
+            
+                  <div class="impact-section">
+                    <h5>Strategic Outcome</h5>
+                    <ul>
+                      <li>Formed the foundation for BT’s subsequent AI-assistant initiatives and enterprise automation frameworks.</li>
+                      <li>Recognized internally as a model for responsible Generative AI deployment in regulated environments.</li>
+                    </ul>
+                  </div>
+                </div>
+            
+              </div>
             </div>
+
 
             <!-- Project 2: Cricket Scenario Recommender System -->
             <div class="project-showcase">
