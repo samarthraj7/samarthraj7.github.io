@@ -22,6 +22,9 @@ function initializeApp() {
         animateHeroSection();
     }, 2000);
     
+    // Set initial active section based on scroll position
+    updateActiveSectionOnScroll();
+    
     // Set initial active section
     updateActiveSection('home');
 }
@@ -100,19 +103,16 @@ function navigateToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (!section) return;
     
-    // Remove active class from all sections
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    
-    // Add active class to target section
-    section.classList.add('active');
-    
     // Update navigation
     updateActiveSection(sectionId);
     
-    // Smooth scroll to section
-    section.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+    // Smooth scroll to section with offset for fixed navbar
+    const navbarHeight = document.getElementById('navbar').offsetHeight;
+    const sectionPosition = section.offsetTop - navbarHeight;
+    
+    window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth'
     });
     
     // Animate section content
@@ -416,26 +416,45 @@ function handleScroll() {
         navbar.style.background = `rgba(255, 255, 255, ${opacity * 0.1})`;
     }
     
-    // Update active section based on scroll position
-    updateActiveSectionOnScroll();
+    // Update active section based on scroll position (throttled)
+    if (!isLoading) {
+        updateActiveSectionOnScroll();
+    }
 }
 
 function updateActiveSectionOnScroll() {
     const sections = document.querySelectorAll('.section');
-    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    const navbarHeight = document.getElementById('navbar').offsetHeight;
+    const scrollPosition = window.scrollY + navbarHeight + 100; // Add offset for better detection
+    
+    let current = '';
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionBottom = sectionTop + section.offsetHeight;
         
-        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-            const sectionId = section.id;
-            if (sectionId !== currentSection) {
-                updateActiveSection(sectionId);
-                currentSection = sectionId;
-            }
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            current = section.id;
         }
     });
+    
+    // Also check if we're at the top of the page
+    if (window.scrollY < 100) {
+        current = 'home';
+    }
+    
+    // If we're past the last section, highlight the last section
+    if (current === '' && sections.length > 0) {
+        const lastSection = sections[sections.length - 1];
+        if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 100) {
+            current = lastSection.id;
+        }
+    }
+    
+    if (current && current !== currentSection) {
+        updateActiveSection(current);
+        currentSection = current;
+    }
 }
 
 function handleResize() {
